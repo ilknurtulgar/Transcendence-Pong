@@ -1,0 +1,47 @@
+services:
+  backend:
+    build: ./backend
+    image: transcendence-backend:latest
+    restart: always
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./backend:/usr/src/app
+      - node_modules_backend:/usr/src/app/node_modules
+      - ./data:/usr/src/app/data
+    env_file:
+      - ./backend/.env
+    environment:
+      - HOST=0.0.0.0
+    command: npm run dev
+
+  frontend:
+    build: ./frontend
+    image: transcendence-frontend:latest
+    restart: always
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend:/usr/src/app
+      - node_modules_frontend:/usr/src/app/node_modules
+    environment:
+      - HOST=0.0.0.0
+    command: npm run dev
+
+  nginx:
+    build: ./nginx
+    image: transcendence-nginx:latest
+    restart: always
+    depends_on:
+      - backend
+    ports:
+      - "443:443"
+volumes:
+  node_modules_backend:
+  node_modules_frontend:
+
+
+
+
+
+

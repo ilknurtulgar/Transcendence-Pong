@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+button, a, input, select, textarea {
+  min-height: 44px;
+  font-size: 16px; 
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 639px) {
+  button, .btn {
+    padding: 12px 16px;
+    min-height: 48px;
+  }
+  input, select, textarea {
+    width: 100%;
+  }
+
+  h1 { font-size: 1.75rem; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.25rem; }
+}
+
+@media (prefers-contrast: high) {
+  button, a {
+    border: 2px solid currentColor;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+*:focus {
+  outline: 3px solid #6366f1;
+  outline-offset: 2px;
+}
+
+*:focus:not(:focus-visible) {
+  outline: none;
+}

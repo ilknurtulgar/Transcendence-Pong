@@ -1,0 +1,22 @@
+{
+    "name": "Transcendence",
+    "short_name": "Transcendence",
+    "description": "Transcendence Web Application",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#0f172a",
+    "theme_color": "#6366f1",
+    "orientation": "any",
+    "icons": [
+        {
+            "src": "/default_avatar.jpg",
+            "sizes": "192x192",
+            "type": "image/jpeg"
+        },
+        {
+            "src": "/default_avatar.jpg",
+            "sizes": "512x512",
+            "type": "image/jpeg"
+        }
+    ]
+}
