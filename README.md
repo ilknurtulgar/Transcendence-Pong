@@ -347,17 +347,3 @@ As the Frontend Lead, itulgar was responsible for the entire user-facing experie
     *   The main challenge was managing complex client-side state, especially with multiple real-time features (chat, game, notifications) potentially operating at the same time. Ensuring the UI always reflected the true state of the application without bugs or race conditions required careful and structured code.
 
 
-Sunum Planın Hakkında Değerlendirme
-İYİ Tarafları:
-
-Oyundan başlayıp WS'ye geçiş hikayesi çok mantıklı ve doğal bir anlatım akışı. Evaluator bunu sevecek.
-"Neden WS kullandım?" sorusuna organik bir cevabın var: "Turnuvayı yaparken lobiye ihtiyaç duydum, oradan da zaten WS altyapısı çıktı."
-DİKKAT Etmen Gerekenler:
-
-Online maçta "aynı bilgisayar" durumunu iyi açıkla — Subject aslında "Both players will use the same keyboard" diyor ama online lobby/invite sisteminiz var. Host-only model (host oynar, karşı taraf onaylar) subject'e uygun ama evaluator "bu gerçek remote değil mi?" diye sorabilir. Şunu söyle: "Subject yerel 2P istiyor, biz buna ek olarak lobi + davet + skor doğrulama katmanı ekledik."
-
-XSS konusunu basit tut — "innerHTML ile kullanıcı verisi geçiriyorduk, escapeHtml() ile kapattık, 7 nokta" deyip geç. Teknik detaya girme, çünkü "bunları neden baştan yapmadınız?" sorusu gelebilir.
-
-AI'ın subject kuralına uyumunu vurgula — "AI must exhibit the same speed as a regular player" ve "AI refreshes its view once per second" — kodunda ikisi de var (PLAYER_SPEED = 3.5 herkes aynı, AI_TICK = 1000).
-
-Chat'in sunucuda saklanmamasını güçlü bir tercih olarak sun — "Bilinçli bir karar, sunucu yükünü azaltır, kullanıcı kendi verisini kontrol eder" diyebilirsin.
